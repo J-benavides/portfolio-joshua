@@ -1,0 +1,114 @@
+.about {
+  padding: 7rem 0;
+  background: #0b0f19;
+
+  &__grid {
+    display: grid;
+    gap: 4rem;
+    align-items: start;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__left { }
+
+  &__bio {
+    font-family: 'Inter', sans-serif;
+    color: #9aafc8;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  &__bio2 {
+    font-family: 'Inter', sans-serif;
+    color: #6b82aa;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.stat {
+  text-align: center;
+
+  &__num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #00d9f5;
+    text-shadow: 0 0 24px rgba(0, 217, 245, 0.4);
+    line-height: 1;
+  }
+
+  &__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #5a72a0;
+    margin-top: 0.375rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+.about-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(var(--card-color-rgb, 0 217 245), 0.13);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+
+  &:hover {
+    border-color: rgba(var(--card-color-rgb, 0 217 245), 0.35);
+    box-shadow: 0 8px 40px var(--card-glow);
+  }
+
+  &__icon-wrap {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--card-glow);
+  }
+
+  &__body { flex: 1; }
+
+  &__title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.375rem;
+  }
+
+  &__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #7a8faa;
+    line-height: 1.6;
+    margin: 0;
+  }
+}

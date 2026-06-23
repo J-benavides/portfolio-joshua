@@ -1,0 +1,150 @@
+<footer id="contact" class="contact">
+  <div class="contact__glow" aria-hidden="true"></div>
+
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="section-label__tag">{{ t.contact.label }}</span>
+      <h2 class="section-label__title">{{ t.contact.heading }}</h2>
+      <div class="section-label__line"></div>
+    </div>
+
+    <p class="contact__sub">{{ t.contact.sub }}</p>
+
+    <div class="contact__grid">
+      <div class="contact__form-wrap">
+        <div class="form-group">
+          <label class="form-label">{{ t.contact.formName }}</label>
+          <input
+            type="text"
+            class="form-input"
+            [placeholder]="t.contact.formName"
+            [(ngModel)]="form.name"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">{{ t.contact.formEmail }}</label>
+          <input
+            type="email"
+            class="form-input"
+            [placeholder]="t.contact.formEmail"
+            [(ngModel)]="form.email"
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label">{{ t.contact.formMessage }}</label>
+          <textarea
+            class="form-input form-textarea"
+            [placeholder]="t.contact.formMessage"
+            rows="5"
+            [(ngModel)]="form.message"
+          ></textarea>
+        </div>
+        <button class="btn-send" (click)="sendMessage()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          {{ t.contact.formSend }}
+        </button>
+      </div>
+
+      <div class="contact__right">
+        <div class="contact__location">
+          <div class="contact__icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D9F5" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact__location-label">Location</div>
+            <div class="contact__location-value">Heredia, Costa Rica — Remote worldwide</div>
+          </div>
+        </div>
+
+        <a [href]="lang === 'en' ? 'assets/CVA/CV_JoshuaBenavidesGuzman_EN.pdf' : 'assets/CVA/CV_JoshuaBenavidesGuzman_ES.pdf'"
+           [download]="lang === 'en' ? 'CV_JoshuaBenavidesGuzman_EN.pdf' : 'CV_JoshuaBenavidesGuzman_ES.pdf'" 
+           class="contact__cv-btn" 
+           style="text-decoration: none; text-align: left;">
+          <div class="contact__icon-wrap contact__icon-wrap--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D9F5" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact__cv-title">{{ t.contact.downloadCV }}</div>
+            <div class="contact__cv-file">
+              {{ lang === 'en' ? 'CV_JoshuaBenavidesGuzman_EN.pdf' : 'CV_JoshuaBenavidesGuzman_ES.pdf' }}
+            </div>
+          </div>
+        </a>
+
+        <div class="contact__socials">
+          <a href="mailto:joshuabenagu@gmail.com" class="social-link">
+            <div class="social-link__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D9F5" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <span class="social-link__label">joshuabenagu@gmail.com</span>
+          </a>
+          <a href="https://github.com/J-benavides" target="_blank" class="social-link">
+            <div class="social-link__icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E2E8F8" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+            </div>
+            <span class="social-link__label">github.com/J-benavides</span>
+          </a>
+          <a href="https://www.linkedin.com/in/joshua-benavides-89b5b525a" target="_blank" class="social-link">
+            <div class="social-link__icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+            </div>
+            <span class="social-link__label">linkedin.com/in/joshua-benavides</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div class="footer-bar__inner">
+      <span class="footer-bar__copy">{{ t.contact.copyright }}</span>
+      <div class="footer-bar__socials">
+        <a href="#" target="_blank" class="footer-social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
+        <a href="#" target="_blank" class="footer-social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="mailto:joshuabenagu@gmail.com" class="footer-social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="custom-alert" [class.custom-alert--show]="showAlert">
+  <div class="custom-alert__content">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5555" stroke-width="2">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <span>{{ alertMessage }}</span>
+  </div>
+</div>

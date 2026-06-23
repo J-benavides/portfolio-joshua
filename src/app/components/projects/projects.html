@@ -1,0 +1,45 @@
+<section id="projects" class="projects">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="section-label__tag">{{ t.projects.label }}</span>
+      <h2 class="section-label__title">{{ t.projects.heading }}</h2>
+      <div class="section-label__line"></div>
+    </div>
+
+    <div class="projects__grid">
+      <div class="project-card" *ngFor="let proj of projectList">
+        <div class="project-card__img-wrap">
+          <img [src]="proj.image" [alt]="proj.title" class="project-card__img" loading="lazy"/>
+          <div class="project-card__img-gradient"></div>
+          <div class="project-card__stack-pills">
+            <span class="stack-pill" *ngFor="let tech of proj.stack">{{ tech }}</span>
+          </div>
+        </div>
+
+        <div class="project-card__body">
+          <h3 class="project-card__title">{{ proj.title }}</h3>
+          <p class="project-card__desc">{{ proj.desc }}</p>
+
+          <div class="project-card__actions">
+            <!-- Botón de Demo (Abre en pestaña nueva) -->
+            <a [href]="proj.demo" target="_blank" rel="noopener noreferrer" class="btn-demo" *ngIf="proj.demo && proj.demo !== '#'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              {{ t.projects.viewDemo }}
+            </a>
+            
+            <!-- Botón de Repositorio (Oculto dinámicamente si es null, vacío o '#') -->
+            <a [href]="proj.repo" target="_blank" rel="noopener noreferrer" class="btn-repo" *ngIf="proj.repo && proj.repo !== '#'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+              <span class="btn-repo__label">{{ t.projects.sourceCode }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

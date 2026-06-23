@@ -1,0 +1,76 @@
+<nav class="navbar">
+  <div class="navbar__inner">
+    <button class="navbar__logo" (click)="goTo('hero')">
+      <span class="logo-j">J</span><span class="logo-b">B</span><span class="logo-g">G</span>
+    </button>
+
+    <div class="navbar__links">
+      <button *ngFor="let lk of navLinks" class="nav-link" (click)="goTo(lk.id)">
+        {{ lk.label }}
+        <span class="nav-link__underline"></span>
+      </button>
+    </div>
+
+    <div class="navbar__controls">
+      <button class="lang-toggle" (click)="toggleLang()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span [class.active]="lang === 'en'">EN</span>
+        <span class="sep">/</span>
+        <span [class.active]="lang === 'es'">ES</span>
+      </button>
+
+      <a [href]="lang === 'en' ? 'assets/CVA/CV_JoshuaBenavidesGuzman_EN.pdf' : 'assets/CVA/CV_JoshuaBenavidesGuzman_ES.pdf'"
+         [download]="lang === 'en' ? 'Joshua_Benavides_CV_EN.pdf' : 'Joshua_Benavides_CV_ES.pdf'"
+         class="btn-cv">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        {{ t.nav.downloadCV }}
+      </a>
+    </div>
+
+    <button class="navbar__mobile-toggle" (click)="menuOpen = !menuOpen">
+      <ng-container *ngIf="!menuOpen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </ng-container>
+      <ng-container *ngIf="menuOpen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </ng-container>
+    </button>
+  </div>
+
+  <div class="navbar__drawer" *ngIf="menuOpen">
+    <button
+      *ngFor="let lk of navLinks"
+      class="drawer-link"
+      (click)="goTo(lk.id); menuOpen = false"
+    >
+      {{ lk.label }}
+    </button>
+    <div class="drawer-controls">
+      <button class="lang-toggle" (click)="toggleLang()">
+        {{ lang === 'en' ? 'ES' : 'EN' }}
+      </button>
+
+      <a [href]="lang === 'en' ? 'assets/CVA/CV_JoshuaBenavidesGuzman_EN.pdf' : 'assets/CVA/CV_JoshuaBenavidesGuzman_ES.pdf'"
+         [download]="lang === 'en' ? 'Joshua_Benavides_CV_EN.pdf' : 'Joshua_Benavides_CV_ES.pdf'"
+         class="btn-cv"
+         (click)="menuOpen = false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        {{ t.nav.downloadCV }}
+      </a>
+    </div>
+  </div>
+</nav>

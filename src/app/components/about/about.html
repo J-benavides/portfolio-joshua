@@ -1,0 +1,54 @@
+<section id="about" class="about">
+  <div class="section-inner">
+    <!-- Section label -->
+    <div class="section-label">
+      <span class="section-label__tag">{{ t.about.label }}</span>
+      <h2 class="section-label__title">{{ t.about.heading }}</h2>
+      <div class="section-label__line"></div>
+    </div>
+
+    <div class="about__grid">
+      <!-- Left: Bio + Stats -->
+      <div class="about__left">
+        <p class="about__bio">{{ t.about.bio }}</p>
+        <p class="about__bio2">{{ t.about.bio2 }}</p>
+
+        <div class="about__stats">
+          <div class="stat" *ngFor="let s of stats">
+            <div class="stat__num">{{ s.num }}</div>
+            <div class="stat__label">{{ s.label }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Cards -->
+      <div class="about__right">
+        <div
+          class="about-card"
+          *ngFor="let card of cards"
+          [style.--card-color]="card.color"
+          [style.--card-glow]="card.glow"
+        >
+          <div class="about-card__icon-wrap">
+            <!-- Target icon -->
+            <svg *ngIf="card.iconType === 'target'" width="20" height="20" viewBox="0 0 24 24" fill="none" [attr.stroke]="card.color" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
+            <!-- Zap icon -->
+            <svg *ngIf="card.iconType === 'zap'" width="20" height="20" viewBox="0 0 24 24" fill="none" [attr.stroke]="card.color" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <!-- Heart icon -->
+            <svg *ngIf="card.iconType === 'heart'" width="20" height="20" viewBox="0 0 24 24" fill="none" [attr.stroke]="card.color" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="about-card__body">
+            <h3 class="about-card__title">{{ card.title }}</h3>
+            <p class="about-card__text">{{ card.body }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section id="experience" class="experience">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="section-label__tag">{{ t.experience.label }}</span>
+      <h2 class="section-label__title">{{ t.experience.heading }}</h2>
+      <div class="section-label__line"></div>
+    </div>
+
+    <div class="timeline">
+      <!-- Vertical line -->
+      <div class="timeline__line"></div>
+
+      <div class="timeline__items">
+        <div class="timeline__item" *ngFor="let job of jobs">
+          <!-- Dot -->
+          <div class="timeline__dot">
+            <span class="timeline__dot-inner"></span>
+          </div>
+
+          <!-- Card -->
+          <div class="job-card">
+            <div class="job-card__header">
+              <div>
+                <h3 class="job-card__title">{{ job.title }}</h3>
+                <p class="job-card__company">{{ job.company }}</p>
+              </div>
+              <span class="job-card__dates">{{ job.dates }}</span>
+            </div>
+
+            <ul class="job-card__achievements">
+              <li *ngFor="let ach of job.achievements" class="job-card__achievement">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D9F5" stroke-width="2" class="ach-icon">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+                {{ ach }}
+              </li>
+            </ul>
+
+            <div class="job-card__stack">
+              <span class="stack-pill" *ngFor="let tech of job.stack">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
